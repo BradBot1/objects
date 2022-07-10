@@ -32,7 +32,7 @@ public @interface Legacy {
 	/**
 	 * @return If this annotation will be replaced by {@link Deprecated} in the future
 	 */
-	public boolean toBeDepricated() default false;
+	public boolean toBeDeprecated() default false;
 	/**
 	 * @return The version that the annotated element became legacy
 	 */
