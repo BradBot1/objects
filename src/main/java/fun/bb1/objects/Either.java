@@ -3,7 +3,9 @@ package fun.bb1.objects;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public record Either<T, Y>(@Nullable T first, @Nullable Y second) {
+import fun.bb1.objects.defineables.IImmutable;
+
+public record Either<T, Y>(@Nullable T first, @Nullable Y second) implements IImmutable {
 	
 	public Either(@Nullable final T first, @Nullable final Y second) {
 		this.first = first;

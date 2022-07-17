@@ -3,7 +3,9 @@ package fun.bb1.objects;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public final record Tuple<T, Y> (@Nullable T first, @Nullable Y second) implements Cloneable {
+import fun.bb1.objects.defineables.IImmutable;
+
+public final record Tuple<T, Y> (@Nullable T first, @Nullable Y second) implements Cloneable, IImmutable {
 
 	public final @NotNull Tuple<Y, T> reverse() {
 		return new Tuple<Y, T>(this.second, this.first);
