@@ -1,5 +1,7 @@
 package fun.bb1.objects.defineables;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * 
  * Copyright 2022 BradBot_1
@@ -19,14 +21,14 @@ package fun.bb1.objects.defineables;
 /**
  * Declares a class as a builder
  * <br>
- * A builder class should be marked final
+ * This class follows the same restrictions as {@link IBuilder}
  * 
  * @author BradBot_1
  */
-public interface IBuilder {
+public interface ITypedBuilder<T> extends IBuilder {
 	/**
 	 * @return Builds the object
 	 */
-	public Object build();
+	public @NotNull T build();
 	
 }
