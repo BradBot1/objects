@@ -5,6 +5,8 @@ import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import fun.bb1.objects.defineables.IStaticMethodsOnly;
+
 /**
  * 
  * Copyright 2022 BradBot_1
@@ -26,7 +28,7 @@ import org.jetbrains.annotations.Nullable;
  * 
  * @author BradBot_1
  */
-public final class NullHandler {
+public final class NullHandler implements IStaticMethodsOnly {
 	
 	private NullHandler() { }
 	
