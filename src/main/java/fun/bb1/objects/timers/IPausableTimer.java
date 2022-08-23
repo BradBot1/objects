@@ -1,5 +1,7 @@
 package fun.bb1.objects.timers;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * 
  * Copyright 2022 BradBot_1
@@ -22,6 +24,12 @@ package fun.bb1.objects.timers;
  * @author BradBot_1
  */
 public interface IPausableTimer extends ITimer {
+	
+	public static void loopUntilTimerEnds(@NotNull final Runnable runnable, @NotNull final IPausableTimer timer) {
+		while (!timer.hasEnded() && !timer.isPaused()) {
+			runnable.run();
+		}
+	}
 	
 	public void pause();
 	

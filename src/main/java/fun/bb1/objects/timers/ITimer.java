@@ -25,8 +25,18 @@ import org.jetbrains.annotations.NotNull;
  */
 public interface ITimer extends Cloneable {
 	
-	public static @NotNull ITimer delay(final long relativeDelay) {
-		return new SystemTimer(relativeDelay, true);
+	public static @NotNull ITimer delay(final long relativeDelayInMs) {
+		return new SystemTimer(relativeDelayInMs, true);
+	}
+	
+	public static void loopUntilTimerEnds(@NotNull final Runnable runnable, @NotNull final ITimer timer) {
+		if (timer instanceof IPausableTimer pauseable) {
+			IPausableTimer.loopUntilTimerEnds(runnable, pauseable);
+			return;
+		}
+		while (!timer.hasEnded()) {
+			runnable.run();
+		}
 	}
 	
 	public long getTimeRemaining();
@@ -37,6 +47,10 @@ public interface ITimer extends Cloneable {
 	
 	public default boolean hasEnded() {
 		return this.getTimeRemaining() <= 0;
+	}
+	
+	public default void loopUntilTimerEnds(@NotNull final Runnable runnable) {
+		loopUntilTimerEnds(runnable, this);
 	}
 	
 }
