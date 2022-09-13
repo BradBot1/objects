@@ -21,7 +21,9 @@ package fun.bb1.objects.defineables;
  * 
  * @author BradBot_1
  */
-@FunctionalInterface
 public interface ICachedFactory<T> extends IFactory<T> {
-	
+	/**
+	 * Clears the cached instance
+	 */
+	public void clearCachedInstance();
 }

@@ -24,5 +24,10 @@ public class ReferenceBasedCachedFactoryImpl<T> implements ICachedFactory<T> {
 		}
 		return this.ref.get();
 	}
+
+	@Override
+	public void clearCachedInstance() {
+		this.ref.clear();
+	}
 	
 }
