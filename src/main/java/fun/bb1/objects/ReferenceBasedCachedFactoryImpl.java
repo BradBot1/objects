@@ -12,7 +12,7 @@ public class ReferenceBasedCachedFactoryImpl<T> implements ICachedFactory<T> {
 	private @NotNull SoftReference<T> ref;
 	private final @NotNull IFactory<T> factory;
 	
-	private ReferenceBasedCachedFactoryImpl(final @NotNull IFactory<T> factory) {
+	public ReferenceBasedCachedFactoryImpl(final @NotNull IFactory<T> factory) {
 		this.factory = factory;
 		this.ref = new SoftReference<T>(this.factory.create());
 	}
