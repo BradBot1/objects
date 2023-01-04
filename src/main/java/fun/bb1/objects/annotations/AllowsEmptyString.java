@@ -2,6 +2,7 @@ package fun.bb1.objects.annotations;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.LOCAL_VARIABLE;
+import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.ElementType.PARAMETER;
 import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.ElementType.TYPE_PARAMETER;
@@ -12,7 +13,7 @@ import java.lang.annotation.Target;
 
 /**
  * 
- * Copyright 2022 BradBot_1
+ * Copyright 2023 BradBot_1
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +33,7 @@ import java.lang.annotation.Target;
  * @author BradBot_1
  */
 @Retention(CLASS)
-@Target({ TYPE, FIELD, PARAMETER, LOCAL_VARIABLE, TYPE_PARAMETER })
+@Target({ TYPE, FIELD, PARAMETER, LOCAL_VARIABLE, TYPE_PARAMETER, METHOD })
 public @interface AllowsEmptyString {
 	
 }
