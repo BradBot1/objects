@@ -1,6 +1,8 @@
 package fun.bb1.objects.container;
 
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.NotNull;
+
+import fun.bb1.objects.defineables.IFactory;
 
 /**
  * 
@@ -19,12 +21,21 @@ import org.jetbrains.annotations.Nullable;
  * limitations under the License.
  */
 /**
- * An object that "contains" another
+ * An implementation of {@link ISourcedContainer}
  * 
  * @author BradBot_1
  */
-public sealed interface IContainer permits Container<?>, ImmutableContainer<?>, IValidatedContainer, ISourcedContainer {
+public final class SourcedContainer<T> implements ISourcedContainer {
 	
-	public @Nullable Object getContained();
+	private final @NotNull IFactory<T> source;
+	
+	public SourcedContainer(final @NotNull IFactory<T> source) {
+		this.source = source;
+	}
+	
+	@Override
+	public @NotNull T getContained() {
+		return this.source.create();
+	}
 	
 }
