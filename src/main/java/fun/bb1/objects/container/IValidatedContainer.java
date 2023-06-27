@@ -19,12 +19,16 @@ import org.jetbrains.annotations.Nullable;
  * limitations under the License.
  */
 /**
- * An object that "contains" another
+ * A {@link Container} that clears itself when it's contents are no longer valid
  * 
  * @author BradBot_1
  */
-public sealed interface IContainer permits Container<?>, ImmutableContainer<?>, IValidatingContainer {
+public sealed interface IValidatedContainer extends IContainer permits ValidatedContainer<?> {
 	
 	public @Nullable Object getContained();
+	/**
+	 * Manually forces the containers state to be checked
+	 */
+	public void performManagement();
 	
 }
