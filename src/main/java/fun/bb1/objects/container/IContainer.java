@@ -23,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
  * 
  * @author BradBot_1
  */
-public sealed interface IContainer permits Container<?>, ImmutableContainer<?>, IValidatedContainer, ISourcedContainer {
+public sealed interface IContainer permits Container<Object>, ImmutableContainer<Object>, IValidatedContainer, ISourcedContainer {
 	
 	public @Nullable Object getContained();
 	

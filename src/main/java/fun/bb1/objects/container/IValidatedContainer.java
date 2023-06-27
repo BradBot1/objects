@@ -1,7 +1,5 @@
 package fun.bb1.objects.container;
 
-import org.jetbrains.annotations.Nullable;
-
 /**
  * 
  * Copyright 2022 BradBot_1
@@ -23,9 +21,7 @@ import org.jetbrains.annotations.Nullable;
  * 
  * @author BradBot_1
  */
-public sealed interface IValidatedContainer extends IContainer permits ValidatedContainer<?> {
-	
-	public @Nullable Object getContained();
+public sealed interface IValidatedContainer extends IContainer permits ValidatedContainer<Object> {
 	/**
 	 * Manually forces the containers state to be checked
 	 */
