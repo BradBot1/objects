@@ -1,5 +1,7 @@
 package fun.bb1.objects;
 
+import java.util.Map;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -7,7 +9,7 @@ import fun.bb1.objects.defineables.IImmutable;
 
 /**
  * 
- * Copyright 2022 BradBot_1
+ * Copyright 2022-2023 BradBot_1
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +29,11 @@ import fun.bb1.objects.defineables.IImmutable;
  * @author BradBot_1
  */
 public final record Tuple<T, Y> (@Nullable T first, @Nullable Y second) implements Cloneable, IImmutable {
-
+	
+	public static final <T, Y> @NotNull Tuple<T, Y> fromEntry(Map.Entry<T, Y> entry) {
+		return new Tuple<T, Y>(entry.getKey(), entry.getValue());
+	}
+	
 	public final @NotNull Tuple<Y, T> reverse() {
 		return new Tuple<Y, T>(this.second, this.first);
 	}
